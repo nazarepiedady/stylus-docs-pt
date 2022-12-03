@@ -3,9 +3,9 @@ layout: default
 permalink: docs/font-face.html
 ---
 
-# @font-face
+# @font-face {#font-face}
 
-The `@font-face` at-rule expects as you would expect. Simply add a block of properties after it, like so:
+A regra arroba `@font-face` espera conforme esperarias. Adicione simplesmente um bloco de propriedades depois dela, desta maneira:
  
 ```stylus
 @font-face
@@ -17,7 +17,7 @@ The `@font-face` at-rule expects as you would expect. Simply add a block of prop
   font-family Geo
 ```
 
-Yielding:
+Resultando em:
 
 ```css
 @font-face {

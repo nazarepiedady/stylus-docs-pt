@@ -3,9 +3,9 @@ layout: default
 permalink: docs/atrules.html
 ---
 
-# Other @-rules
+# Outras Regras Arroba {#other-at-rules}
 
-Stylus have a basic support for braceless syntax for most of the CSS @-rules, like `@viewport`, `@page`, `@host`, `@supports` and others:
+A Stylus tem um suporte básico para a sintaxe sem chavetas para a maioria das regras arroba da CSS, tais como `@viewport`, `@page`, `@host`, `@supports` e outros:
 
 ```stylus
 @viewport
@@ -20,7 +20,7 @@ Stylus have a basic support for braceless syntax for most of the CSS @-rules, li
     content: none
 ```
 
-Would compile to
+Compilaria para
 
 ```css
 @viewport {
@@ -37,9 +37,9 @@ Would compile to
   }
 }
 ```
-## Unknown at-rules
+## Regras Arroba Desconhecidas {#unknown-at-rules}
 
-Stylus supports any yet unknown @-rules, so it is future-friendly, as any new at-rules in CSS could be written in indentation-based syntax of Stylus and would be rendered perfectly:
+A Stylus suporta ainda quaisquer regras arroba desconhecida, assim é amistosa com o futuro, já que quaisquer regras arroba novas na CSS poderiam ser escritas na sintaxe baseada em indentação da Stylus e seriam interpretadas perfeitamente:
 
 ```stylus
 @foo
@@ -50,7 +50,7 @@ Stylus supports any yet unknown @-rules, so it is future-friendly, as any new at
       height: 10px
 ```
 
-Would be compiled to
+Seria compilada para
 
 ```css
 @foo {

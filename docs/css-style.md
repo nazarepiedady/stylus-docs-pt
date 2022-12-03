@@ -3,13 +3,13 @@ layout: default
 permalink: docs/css-style.html
 ---
 
-# CSS Style Syntax
+# Sintaxe de Estilo da CSS {#css-style-syntax}
 
-Stylus transparently supports a regular CSS-style syntax. This means you don't need an alternative parser, or specify that a certain file uses a specific style.
+A Stylus suporta transparentemente uma sintaxe de estilo de CSS normal. Isto signifca que não precisas de um analisador alternativo, ou especificar que um certo ficheiro usa um estilo específico.
 
-## Example
+## Exemplo {#exemplo}
 
- Below is a small style using the indented approach:
+Abaixo está um pequeno estilo usando a abordagem indentada:
  
  ```stylus
 border-radius()
@@ -28,7 +28,7 @@ form input
   border-radius 5px
 ```
 
-Since braces, colons, and semi-colons are optional, we could write this example just as we would with normal CSS:
+Já que as chavetas, dois pontos, pontos e virgulas são opcionais, poderíamos escrever este exemplo tal como escreveríamos com a CSS normal:
  
 ```stylus
 border-radius() {
@@ -50,7 +50,7 @@ form input {
 }
 ```
 
-While Stylus don't support _every_ possible CSS-like syntax, it can understand even such code:
+Embora a Stylus não suporte _toda_ possível sintaxe parecida com CSS, ela pode entender atá mesmo tal código:
 
 ```stylus
       border-radius() {
@@ -73,7 +73,7 @@ While Stylus don't support _every_ possible CSS-like syntax, it can understand e
         }
 ```
 
-Since we may mix and match the two variants, the following is valid as well:
+Já que podemos misturar e combinar as duas variantes, o que se segue também é válido:
  
 ```stylus
 border-radius()
@@ -92,7 +92,7 @@ form input
   border: 1px solid;
   border-radius: 5px;
 ```
- Variables, functions, mixins, and all the other features provided by Stylus still work as expected:
+As variáveis, funções, misturadores, e todas as outras funcionalidades fornecidas pela Stylus ainda funcionam como esperado:
  
  ```stylus
 main-color = white
@@ -106,6 +106,6 @@ body a {
 body a { color: main-color; &:hover { color: main-hover-color; }}
 ```
 
-There are a few caveats to this rule: since the two styles may be mixed and matched, some indentation rules still apply. So although not _every_ plain-CSS stylesheet will work with zero modification, this feature allows those who prefer CSS syntax to continue doing so while leveraging Stylus' other powerful features.
+Estas são algumas das advertências para esta regra: já que os dois estilos podem ser misturados e combinados, algumas regras de indentação ainda se aplicam. Então ainda que nem _toda_ folha de estilo de CSS simples funcionará sem modificação, esta funcionalidade permite aqueles que preferem a sintaxe de CSS continuarem a fazê-lo enquanto influenciam outras funcionalidades poderosas da Stylus.
  
 

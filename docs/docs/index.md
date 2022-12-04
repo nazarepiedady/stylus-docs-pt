@@ -6,9 +6,9 @@ permalink: /
 
 ---
 
-# Expressive, dynamic, robust CSS
+# CSS expressiva, dinâmica e robusta {#expressive-dynamic-robust-css}
 
-## CSS needs a hero
+## A CSS precisa de um herói {#css-needs-a-hero}
 
 ```css
 body {
@@ -21,7 +21,7 @@ a.button {
 }
 ```
 
-### What if we could omit braces?
+### E se pudéssemos omitir as chavetas? {#what-if-we-could-omit-braces}
 
 ```stylus
 body
@@ -33,7 +33,7 @@ a.button
   border-radius: 5px;
 ```
 
-### How about semi-colons?
+### E que tal os pontos e virgulas? {#how-about-semi-colons}
 
 ```stylus
 body
@@ -45,7 +45,7 @@ a.button
   border-radius: 5px
 ```
 
-### Keep things DRY
+### Mantenha as coisas no Não Se Repita (DRY, sigla em Inglês) {#keep-things-dry}
 
 ```stylus
 border-radius()
@@ -60,7 +60,7 @@ a.button
   border-radius(5px)
 ```
 
-### How about transparent mixins?
+### Que tal misturadores transparentes? {#how-about-transparent-mixins}
 
 ```stylus
 border-radius()
@@ -75,7 +75,7 @@ a.button
   border-radius: 5px
 ```
 
-### Create & Share
+### Crie & Partilhe {#create-&-share}
 
 ```stylus
 @import 'vendor'
@@ -87,7 +87,7 @@ a.button
   border-radius: 5px
 ```
 
-### Even in-language functions!
+### Até mesmo funções na linguagem! {#even-in-language-functions}
 
 ```stylus
 sum(nums...)
@@ -98,7 +98,7 @@ sum(1 2 3 4)
 // => 10
 ```
 
-### What if it were all optional?
+### E se for tudo opcional? {#what-if-it-were-all-optional}
 
 ```stylus
 fonts = Helvetica, Arial, sans-serif
@@ -109,49 +109,45 @@ body {
 }
 ```
 
-### Get styling with Stylus
+### Escreva os teus estilos com a Stylus {#get-styling-with-stylus}
 
-Installing Stylus is very easy once you have [Node.js](https://nodejs.org/).
-So get the binaries for your platform and make sure that they also include npm, Node's package manager.
+A instalação do Stylus é muito fácil uma vez que tenhas a [Node.js](https://nodejs.org/) instalada. Então pegue os binários para a tua plataforma e certifica-te de que eles também incluem a NPM, o gestor de pacote da Node.
 
-Now, type in your terminal:
+Agora, digite no teu terminal o que está abaixo:
 
 ```bash
 $ npm install stylus -g
 ```
 
-If you want an expressive css language for nodejs with these
-features or the features listed below, head over to 
-[GitHub](https://github.com/stylus/stylus)
-for more information.
+Se quiseres uma linguagem de CSS expressiva para Node.js com estas funcionalidades ou as funcionalidades listadas abaixo, siga para a [GitHub](https://github.com/stylus/stylus) para mais informações.
 
 
-### Features
+### Funcionalidades {#features}
 
-- Optional colons         
-- Optional semi-colons         
-- Optional commas         
-- Optional braces         
-- Variables          
-- Interpolation
-- Mixins
-- Arithmetic
-- Type coercion
-- Dynamic importing
-- Conditionals
-- Iteration
-- Nested selectors
-- Parent referencing
-- Variable function calls
-- Lexical scoping
-- Built-in functions (over 60)
-- In-language functions
-- Optional compression
-- Optional image inlining
-- Stylus executable
-- Robust error reporting
-- Single-line and multi-line comments
-- CSS literal for those tricky times
-- Character escaping
-- TextMate bundle
-- and more!
+- Dois pontos opcionais
+- Pontos e virgulas opcionais
+- Virgulas opcionais
+- Chavetas opcionais
+- Variáveis
+- Interpolação
+- Misturadores
+- Aritmética
+- Coação de tipo
+- Importação dinâmica
+- Condicionais
+- Iteração
+- Seletores encaixados
+- Fazer referência ao pai
+- Chamadas de função variável
+- Escopo Léxico
+- Funções embutidas (mais de 60)
+- Funções na linguagem
+- Compressão opcional
+- Incorporação de imagem opcional
+- Executável de Stylus
+- Reportagem de erro robusta
+- Comentários de várias linhas e de única linha
+- Literal de CSS para aqueles momentos difíceis
+- Escapamento de Carácter
+- Pacote de TextMate
+- E muito mais!s

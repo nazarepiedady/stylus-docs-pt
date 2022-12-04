@@ -3,9 +3,9 @@ layout: default
 permalink: docs/variables.html
 ---
 
-# Variables
+# Variáveis {#variables}
 
-We may assign expressions to variables and use them throughout our stylesheet:
+Nós podemos atribuir expressões a variáveis e usá-las por toda nossa folha de estilo:
 
 ```stylus
 font-size = 14px
@@ -13,13 +13,13 @@ font-size = 14px
 body
   font font-size Arial, sans-serif
 
-//Compiles to:
+//Compila para:
 body {
   font: 14px Arial, sans-serif;
 }
 ```
 
-Variables can even consist of an expression list:
+As variáveis podem ser composta de uma lista de expressão:
 
 ```stylus
 font-size = 14px
@@ -28,13 +28,13 @@ font-stack = "Lucida Grande", Arial, sans-serif
 body
   font font-size font-stack
 
-//Compiles to:
+//Compila para:
 body {
   font: 14px "Lucida Grande", Arial, sans-serif;
 }
 ```
 
-Identifiers (variable names, functions, etc.) may also include the `$` character. For example:
+Os identificadores (nomes de variáveis, funções, etc.) também podem incluir o carácter `$`. Por exemplo:
 
 ```stylus
 $font-size = 14px
@@ -43,7 +43,7 @@ body {
 }
 ```
 
-We can not use null to create empty variable, but parentheses `()` can do that:
+Nós não podemos usar `null` para criar uma variável vazia, mas os parênteses `()` podem ser usados para isto:
 
 ```stylus
 empty = ()
@@ -52,7 +52,7 @@ body {
 }
 ```
 
-Compiles to:
+Compila para:
 
 ```css
     body {
@@ -60,10 +60,9 @@ Compiles to:
     }
 ```
 
-## Property Lookup
+## Consulta de Propriedade {#property-lookup}
 
-Another cool feature unique to Stylus is the ability to reference
-properties defined _without_ assigning their values to variables. A great example of this is the logic required for vertically and horizontally center an element (typically done using percentages and negative margins, as follows):
+Uma outra funcionalidade fantástica exclusiva da Stylus é a habilidade de referenciar propriedades definidas _sem_ a atribuição de seus valores às variáveis. Um excelente exemplo disto é a lógica obrigatória para o centralizar verticalmente e horizontalmente um elemento (normalmente realizado com uso de percentagens e margens negativas, como mostrado a seguir):
 
 ```stylus
 #logo
@@ -75,8 +74,8 @@ properties defined _without_ assigning their values to variables. A great exampl
   margin-left: -(w / 2)
   margin-top: -(h / 2)
 ```
-Instead of assigning the variables `w` and `h`, we can simply prepend the `@`
-character to the property name to access the value:
+
+No lugar de atribuir as variáveis `w` e `h`, podemos simplesmente prefixar o nome da propriedade com o carácter `@` para acessar o valor:
 
 ```stylus
 #logo
@@ -89,7 +88,7 @@ character to the property name to access the value:
   margin-top: -(@height / 2)
 ```
 
-Another use-case is conditionally defining properties within mixins based on the existence of others . In the following example, we apply a default `z-index` of `1`—but _only_ if `z-index` was not previously specified:
+Um outro caso de uso é a definir condicionalmente as propriedades dentro de misturadores baseados sobre a existência de outros. No exemplo seguinte, aplicamos um `z-index` padrão como `1` — mas _somente_ se `z-index` não foi especificado antes:
 
 ```stylus
 position()
@@ -104,7 +103,7 @@ position()
   position: absolute
 ```
 
-Property lookup will "bubble up" the stack until found, or return `null` if the property cannot be resolved. In the following example, `@color` will resolve to `blue`:
+A consulta de propriedade "transbordará" a pilha até encontrar, ou retornar `null` se a propriedade não puder ser resolvida. No exemplo seguinte, `@color` resolverá para `blue`:
 
 ```stylus
 body

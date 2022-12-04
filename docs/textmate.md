@@ -3,6 +3,6 @@ layout: default
 permalink: docs/textmate.html
 ---
 
-# TextMate Bundle
+# Pacote de TextMate {#textmate-bundle}
 
- Stylus ships with a TextMate bundle, located within `./editors`. To install, simply execute `make install-bundle`, or place `./editors/Stylus.tmbundle` in the appropriate location.
+Stylus está disponível com um pacote para o editor TextMate, localizado dentro de `./editors`. Para instalar, apenas execute `make install-bundle`, ou coloque `./editors/Stylus.tmbundle` na localização apropriada.

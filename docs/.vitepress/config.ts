@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { version } from '../package.json'
+import { version } from '../../package.json'
 import {
   contributing,
   font,
@@ -13,15 +13,15 @@ import {
 } from './meta'
 
 export default defineConfig({
-  lang: 'en-US',
+  lang: 'pt-PT',
   title: stylusName,
   description: stylusDescription,
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'alternate icon', href: '/favicon.ico', type: 'image/png', sizes: '16x16' }],
-    ['meta', { name: 'author', content: `${stylusName} contributors` }],
-    ['meta', { name: 'keywords', content: 'css, preprocessor, stylus, styl, stylesheet, css3' }],
+    ['meta', { name: 'author', content: `${stylusName} colaboradores` }],
+    ['meta', { name: 'keywords', content: 'css, preprocessor, stylus, styl, stylesheet, css3, pré-processador' }],
     ['meta', { property: 'og:title', content: stylusName }],
     ['meta', { property: 'og:description', content: stylusDescription }],
     ['meta', { property: 'og:url', content: ogUrl }],
@@ -54,10 +54,10 @@ export default defineConfig({
     logo: '/logo.svg',
 
     editLink: {
-      repo: 'stylus/stylus',
-      branch: 'dev',
+      repo: 'nazarepiedady/stylus-docs-pt',
+      branch: 'main',
       dir: 'docs',
-      text: 'Suggest changes to this page',
+      text: 'Sugerir alterações para esta página',
     },
 
     algolia: {
@@ -67,8 +67,9 @@ export default defineConfig({
     },
 
     localeLinks: {
-      text: 'English',
+      text: 'Português',
       items: [
+        { text: 'English', link: 'https://www.stylus-lang.com' },
         { text: '中文', link: 'https://www.stylus-lang.cn' },
         { text: '中文(张鑫旭)', link: 'https://www.zhangxinxu.com/jq/stylus' },
       ],
@@ -80,24 +81,24 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2010-PRESENT tj, iChenLei and stylus contributors',
+      message: 'Lançado sob a licença MIT.',
+      copyright: 'Copyright © 2010-PRESENT tj, iChenLei, os colaboradores da stylus',
     },
 
     nav: [
-      { text: 'Playground', link: '/try' },
-      { text: 'Features', link: '/docs/' },
+      { text: 'Zona de Testes', link: '/try' },
+      { text: 'Funcionalidades', link: '/docs/' },
       { text: 'API', link: '/docs/js' },
       { text: 'CLI', link: '/docs/executable' },
       {
         text: `v${version}`,
         items: [
           {
-            text: 'Release Notes ',
+            text: 'Notas de Lançamento ',
             link: releases,
           },
           {
-            text: 'Contributing ',
+            text: 'Contribuições ',
             link: contributing,
           },
         ],
@@ -107,50 +108,50 @@ export default defineConfig({
     sidebar: {
       '/': [
         {
-          text: 'Features',
+          text: 'Funcionalidades',
           items: [
             {
-              text: 'Selectors',
+              text: 'Seletores',
               link: '/docs/selectors',
             },
             {
-              text: 'Variables',
+              text: 'Variáveis',
               link: '/docs/variables',
             },
             {
-              text: 'Interpolation',
+              text: 'Interpolação',
               link: '/docs/interpolation',
             },
             {
-              text: 'Operators',
+              text: 'Operadores',
               link: '/docs/operators',
             },
             {
-              text: 'Mixins',
+              text: 'Misturadores',
               link: '/docs/mixins',
             },
             {
-              text: 'Functions',
+              text: 'Funções',
               link: '/docs/functions',
             },
             {
-              text: 'Keyword Arguments',
+              text: 'Argumentos de Palavra-Chave',
               link: '/docs/kwargs',
             },
             {
-              text: 'Built-in functions',
+              text: 'Funções Embutidas',
               link: '/docs/bifs',
             },
             {
-              text: 'Rest params',
+              text: 'Parâmetros Resto',
               link: '/docs/vargs',
             },
             {
-              text: 'Comments',
+              text: 'Comentários',
               link: '/docs/comments',
             },
             {
-              text: 'Conditionals',
+              text: 'Condicionais',
               link: '/docs/conditionals',
             },
             {
@@ -158,7 +159,7 @@ export default defineConfig({
               link: '/docs/hashes',
             },
             {
-              text: 'Iteration',
+              text: 'Iteração',
               link: '/docs/iteration',
             },
             {
@@ -166,44 +167,44 @@ export default defineConfig({
               link: 'docs/functions.url'
             },
             {
-              text: 'css literal',
+              text: 'Literal de CSS',
               link: 'docs/literal'
             },
             {
-              text: 'css style syntax',
+              text: 'Sintaxe Normal de CSS',
               link: 'docs/css-style'
             },
             {
-              text: 'char escape',
+              text: 'Escapar Carácter',
               link: 'docs/escape'
             },
             {
-              text: 'executable',
+              text: 'Executável',
               link: 'docs/executable'
             },
             {
-              text: 'connect middleware',
+              text: 'Intermediário de Conexão',
               link: 'docs/middleware'
             },
             {
-              text: 'introspection api',
+              text: 'API de Introspeção',
               link: 'docs/introspection'
             },
             {
-              text: 'javascript api',
+              text: 'API de JavaScript',
               link: 'docs/js'
             },
             {
-              text: 'css3 extensions with nib',
+              text: 'Extensões de CSS3 com nib',
               link: 'https://stylus.github.io/nib'
             }
           ],
         },
         {
-          text: 'At Rules',
+          text: 'Regras Arroba',
           items: [
             {
-              text: '@import and @require',
+              text: '@import e @require',
               link: '/docs/import',
             },
             {
@@ -227,29 +228,29 @@ export default defineConfig({
               link: 'docs/block'
             },
             {
-              text: 'other @-rules',
+              text: 'Outras Regras Arroba',
               link: 'docs/atrules'
             }
           ],
         },
         {
-          text: 'Debug',
+          text: 'Depuração',
           items: [
             {
-              text: 'error-reporting',
+              text: 'Reportagem de Erro',
               link: 'docs/error-reporting'
             },
             {
-              text: 'sourcemaps',
+              text: 'Mapas de Fonte',
               link: 'docs/sourcemaps'
             },
           ],
         },
         {
-          text: 'CLI',
+          text: 'Interface de Linha de Comando',
           items: [
             {
-              text: 'cli reference',
+              text: 'Referência da Linha de Comando',
               link: '/docs/executable',
             },
           ],

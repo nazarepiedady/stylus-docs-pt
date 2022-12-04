@@ -1,7 +1,9 @@
+css
+testing
 .DS_Store
-.vitepress/dist
+/node_modules
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+coverage.html
 .idea
-*.log
-node_modules
-logs
-npm-debug.log*

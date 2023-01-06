@@ -5,7 +5,7 @@ permalink: docs/compare.html
 
 # Comparações de Implementação {#implementation-comparisons}
 
-Abaixo comparamos a Stylus com outras implementações.
+Nesta seção comparamos a Stylus com outras implementações de pré-processadores.
 
 ## Variáveis {#variables}
 

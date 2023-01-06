@@ -3,39 +3,39 @@ layout: default
 permalink: docs/comments.html
 ---
 
-# Comments
+# Comentários {#comments}
 
-  Stylus supports three kinds of comments: single-line, and multi-line comments, and multi-line buffered comments.
+A Stylus suporta três tipos de comentários: única linha, várias linhas, e várias linhas amortecidas.
 
-## Single-line
+## Única Linha {#single-line}
 
-Single-line comments look like JavaScript comments, and do not output in the resulting CSS:
+Os comentários de única linha são parecidos com os comentários da JavaScript, e não fazem parte da folha de estilo de CSS compilada:
 
 ```stylus
-// I'm a comment!
+// Eu sou um comentário!
 body
-  padding 5px // some awesome padding
+  padding 5px // algum enchimento (padding, em Inglês) impressionante
 ```
 
-## Multi-line
+## Várias Linhas {#multi-line}
 
-Multi-line comments look identical to regular CSS comments. However, they only output when the `compress` option is not enabled.
+Os comentários de várias linhas são idênticos aos comentários normais de CSS. No entanto, só são processados como parte da folha de estilo compilada quando a opção `compress` não está ativada:
 
 ```stylus
 /*
- * Adds the given numbers together.
+ * Some dois dados números.
  */
 add(a, b)
   a + b
 ```
 
-## Multi-line buffered
+## Várias Linhas Amortecidas {#multi-line-buffered}
 
-Multi-line comments which are not suppressed start with `/*!`. This tells Stylus to output the comment regardless of compression.
+Os comentários de várias linhas que não são suprimidos começam com `/*!`. Isto diz a Stylus para processar o cometário na folha de estilo compilada independentemente da compressão:
 
 ```stylus
 /*!
- * Adds the given numbers together.
+ * Some dois dados números.
  */
 add(a, b)
   a + b

@@ -3,28 +3,25 @@ layout: default
 permalink: docs/firebug.html
 ---
 
-# FireStylus extension for Firebug
+# Extensão FireStylus para a Firebug {#firestylus-extension-for-firebug}
 
-[FireStylus](https://github.com/parallel/firestylus) is a Firebug extension 
-that makes Firebug display the Stylus filename and line numbers of 
-the Stylus-generated CSS styles rather than those of the generated CSS.
+A [FireStylus](https://github.com/parallel/firestylus) é uma extensão de Firebug que faz a Firebug mostrar o nome de ficheiro da STylus e o números da linha dos estilos de CSS gerados pela Stylus em vez daqueles da CSS gerada.
 
-![Screenshot](https://raw.github.com/parallel/firestylus/master/src/chrome/skin/screenshot.png)
+![Captura da Tela](https://raw.github.com/parallel/firestylus/master/src/chrome/skin/screenshot.png)
 
-## Usage
+## Uso {#usage}
 
-First, you need to install [Firebug](https://addons.mozilla.org/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail)
-and the [FireStylus extension](https://github.com/parallel/firestylus)
+Primeiro, precisas instalar as extensões [Firebug](https://addons.mozilla.org/firefox/downloads/latest/1843/addon-1843-latest.xpi?src=addondetail) e a [FireStylus](https://github.com/parallel/firestylus).
 
-Then simply enable the Stylus's `firebug` option when generating CSS.
+Depois simplesmente ative a opção `firebug` da Stylus quando estiveres gerando a CSS.
 
-Command line usage:
+Uso com a linha de comando:
 
 ```bash
 $ stylus -f <path>
 $ stylus --firebug <path>
 ```
-Javascript usage:
+Uso com a JavaScript:
 
 ```css
 var stylus = require('stylus');
@@ -51,17 +48,15 @@ var server = connect.createServer(
 );
 ```
 
-## Compatibility
+## Compatibilidade {#compatibility}
 
-FireStylus should work with Firefox versions 3.0 and up, and with Firebug versions 1.4 and up.
+A FireStylus deve funcionar com as versões de Firefox iguais ou superior a 3.0, e com as verões de Firebug iguais ou superiores a 1.4.
 
-- Firefox 3+ (also works with version 5)
+- Firefox 3+ (também funciona com a versão 5)
 - Firebug 1.4+
 
-## Limitations
+## Limitações {#limitations}
 
-FireStylus and FireSass are incompatible. You cannot enable them
-simultaneously.
+A FireStylus e a FireSass são incompatíveis. Tu não podes ativá-las em simultâneo.
 
-FireStylus (like FireSass) only works in the HTML pane of Firebug. The others
-(such as the CSS pane) won't work due to Firebug limitations.
+A FireStylus (tal como a FireSass) apenas funcionam no painel da HTML da Firebug. Os outros (tais como o painel da CSS) não funcionarão por causa das limitações da Firebug.

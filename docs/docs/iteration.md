@@ -5,8 +5,8 @@ permalink: docs/iteration.html
 
 # Iteração {#iteration}
 
-A Stylus permite-te iterar expressões através do construtor `for/in`, assumindo a forma de:
- 
+A stylus permite-te iterar expressões através do construtor `for/in`, assumindo a forma de:
+
 ```bash
 for <val-name> [, <key-name>] in <expression>
 ```
@@ -79,12 +79,12 @@ for num in (1..10)
     100% { left: (num * 30px) }
 ```
 
-## Misturadores {#mixins}
+## Combinadores {#mixins}
 
-Nós podemos usar a iteração dentro dos misturadores para produzir uma funcionalidade poderosa. Por exemplo, podemos aplicar pares de expressão como propriedades com uso de interpolação e iteração.
- 
+Nós podemos usar a iteração dentro dos combinadores para produzir uma funcionalidade poderosa. Por exemplo, podemos aplicar pares de expressão como propriedades com uso de interpolação e iteração.
+
 Abaixo definimos `apply()`, utilizando condicionalmente todos os `arguments` para que as listas de expressão _e_ delimitadas com virgula sejam suportadas:
- 
+
 ```stylus
 apply(props)
   props = arguments if length(arguments) > 1
@@ -101,7 +101,7 @@ body
 
 ## Funções {#functions}
 
-As funções de Stylus também podem conter laços `for`. Abaixo estão alguns exemplos de casos de uso:
+As funções de stylus também podem conter laços `for`. Abaixo estão alguns exemplos de casos de uso:
 
 Sum:
 

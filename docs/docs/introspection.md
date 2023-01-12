@@ -7,7 +7,6 @@ permalink: docs/introspection.html
 
 A Stylus suporta uma API de introspeção. Isto permite que os misturadores e funções reflitam o chamador, etc.
 
-
 ## mixin {#mixin}
 
 A variável local `mixin` é atribuída automaticamente dentro dos corpos de função. Ela contém uma sequência de caracteres `root` se a função for chamada no nível da raiz, ou `block` a indicar o contrário, e finalmente `false` se a função invocada esperar  um valor de retorno.
@@ -31,7 +30,7 @@ body
   foo reset()
 ```
 
-Compila para:
+Resulta em:
 
 ```css
 got {

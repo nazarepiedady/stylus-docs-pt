@@ -4,78 +4,6 @@ import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/vite'
 import { presetAttributify, presetIcons, presetUno } from 'unocss'
-import { resolve } from 'pathe'
-import type { VitePluginPWAAPI } from 'vite-plugin-pwa'
-import { VitePWA } from 'vite-plugin-pwa'
-import fg from 'fast-glob'
-import {
-  pwaFontStylesRegex,
-  pwaFontsRegex,
-  stylusDescription,
-  stylusName,
-  stylusShortName,
-} from './.vitepress/meta'
-import { optimizePages } from './.vitepress/scripts/assets'
-
-const PWA = VitePWA({
-  outDir: '.vitepress/dist',
-  registerType: 'autoUpdate',
-  // include all static assets under public/
-  includeAssets: fg.sync('**/*.{png,svg,ico,txt}', { cwd: resolve(__dirname, 'public') }),
-  manifest: {
-    id: '/',
-    name: stylusName,
-    short_name: stylusShortName,
-    description: stylusDescription,
-    theme_color: '#ffffff',
-    icons: [
-      {
-        src: 'stylus.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-      {
-        src: 'logo.svg',
-        sizes: '165x165',
-        type: 'image/svg',
-        purpose: 'any maskable',
-      },
-    ],
-  },
-  workbox: {
-    navigateFallbackDenylist: [/^\/new$/],
-    runtimeCaching: [
-      {
-        urlPattern: pwaFontsRegex,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'google-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200],
-          },
-        },
-      },
-      {
-        urlPattern: pwaFontStylesRegex,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'gstatic-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200],
-          },
-        },
-      },
-    ],
-  },
-})
 
 export default defineConfig({
   plugins: [
@@ -99,7 +27,7 @@ export default defineConfig({
       ],
     }),
     //IncludesPlugin(),
-    PWA,
+    /* PWA,
     {
       name: 'pwa:post',
       enforce: 'post',
@@ -110,7 +38,7 @@ export default defineConfig({
         if (pwa)
           await pwaPlugin.generateSW()
       },
-    },
+    }, */
   ],
 })
 

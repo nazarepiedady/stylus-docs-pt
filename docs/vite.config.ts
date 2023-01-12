@@ -1,5 +1,5 @@
-import fs from 'fs'
-import type { Plugin } from 'vite'
+//import fs from 'fs'
+//import type { Plugin } from 'vite'
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/vite'
@@ -98,7 +98,7 @@ export default defineConfig({
         }),
       ],
     }),
-    IncludesPlugin(),
+    //IncludesPlugin(),
     PWA,
     {
       name: 'pwa:post',
@@ -114,7 +114,7 @@ export default defineConfig({
   ],
 })
 
-function IncludesPlugin(): Plugin {
+/* function IncludesPlugin(): Plugin {
   return {
     name: 'include-plugin',
     enforce: 'pre',
@@ -129,4 +129,4 @@ function IncludesPlugin(): Plugin {
         return code
     },
   }
-}
+} */

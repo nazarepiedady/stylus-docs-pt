@@ -3,13 +3,13 @@ layout: default
 permalink: docs/hashes.html
 ---
 
-# Hashes
+# Dicionários {#hashes}
 
-In `0.39.0` version Stylus got hash objects.
+Na versão `0.39.0` a stylus recebeu os objetos dicionário.
 
-## Define
+## Definir {#define}
 
-You can define a hash using the curly braces and colons to divide the keys and values:
+Tu podes definir um dicionário com uso de parêntesis curvos e dois pontos para dividir as chaves e os valores:
 
 ```stylus
 foo = {
@@ -18,7 +18,7 @@ foo = {
 }
 ```
 
-the keys should be either proper idents or strings:
+as chaves devem ser ou identificadores apropriados ou sequências de caracteres:
 
 ```stylus
 foo = {
@@ -28,7 +28,7 @@ foo = {
 }
 ```
 
-When you already have a hash, you can set its values using brackets and strings inside:
+Quando já tiveres um dicionário, podes definir os seus valores usandos parêntesis retos e sequências de caracteres dentro:
 
 ```stylus
 foo = {}
@@ -36,7 +36,7 @@ foo['bar'] = baz
 foo['baz'] = raz
 ```
 
-Note that while you can't use variables or interpolations in curly braces defines, you can use variables inside brackets:
+Nota que enquanto não poderes usar as variáveis ou interpolações nos parêntesis curvos da definição, podes usar variáveis dentro dos parêntesis retos:
 
 ```stylus
 foo = {}
@@ -45,10 +45,11 @@ foo[bar] = raz
 
 foo.baz
 // => raz
-``` 
-### Anonymous hash
+```
 
-We can create anonymous hash objects for list, a kind object with out variable name.
+### Dicionário Anónimos
+
+Nós podemos criar anónimos objetos de dicionário para lista, um tipo de objeto com nome de variável de saída.
 
 ```stylus
 list = foo {int: 1, str: '1'} {node: a-node, color: #32E}
@@ -69,11 +70,11 @@ list[2].color
 // => #32E
 ```
 
-To access its values, we can use both brackets syntax (`['str']`) and dot syntax (`.`). Brackets syntax works well for programming, meanwhile dot syntax is more readable and JSON-alike syntax. It works well with iteration and conditional statement as well.
+Para acessar os seus valores, podemos usar ambas a sintaxe de parêntesis reto (`['str']`) e sintaxe de ponto (`.`). A sintaxe de parêntesis retos funciona bem para programação, enquanto a sintaxe de ponto é mais legível e parecida com a sintaxe de JSON. Ela funciona bem com iteração e também com declaração condicional.
 
-## Getters
+## Recuperadores {#getters}
 
-For retrieving values from hashes you can use the dot for idents:
+Para recuperar valores a partir dos dicionários podes usar o ponto para os identificadores:
 
 ```stylus
 foo = { bar: "baz" }
@@ -82,7 +83,7 @@ foo.bar
 // => "baz"
 ```
 
-Or brackets with strings for anything:
+Ou parêntesis retos com sequências de caracteres para qualquer coisa:
 
 ```stylus
 foo = { "%": 10 }
@@ -92,7 +93,7 @@ foo[baz]
 // => 10
 ```
 
-You can use any combinations you want:
+Tu podes usar quaisquer combinações que quiseres:
 
 ```stylus
 foo = {
@@ -108,9 +109,9 @@ foo["bar"].baz[qux]
 // => 10px
 ```
 
-## Interpolation
+## Interpolação {#interpolation}
 
-Hashes used inside an interpolation would output the content of the hashes as CSS (without almost any Stylus features though):
+Os dicionários usados dentro de uma interpolação produziriam o conteúdo dos dicionários como CSS (embora sem quase quaisquer funcionalidades da stylus):
 
 ```stylus
 foo = {
@@ -134,9 +135,9 @@ foo = {
 //    }
 ```
 
-## Other stuff
+## Outras coisas {#other-stuff}
 
-You can use other normal Stylus stuff with hashes, like `length()`:
+Tu podes usar outras coisas da stylus normal com os dicionários, como `length()`:
 
 ```stylus
 foo = { bar: 'a', baz: 'b' }
@@ -145,7 +146,7 @@ length(foo)
 // => 2
 ```
 
-You can iterate through hashes with optional key param:
+Tu podes iterar através dos dicionários com o parâmetro chave opcional:
 
 ```stylus
 foo = { width: 10px, height: 20px }
@@ -157,7 +158,7 @@ for key, value in foo
 //    height: 20px;
 ```
 
-You can check existence of a key in hash using `in`:
+Tu podes verificar a existência de uma chave no dicionário usando `in`:
 
 ```stylus
 foo = { bar: 10px}
@@ -169,7 +170,7 @@ baz in foo
 // => false
 ```
 
-You can get keys or values of the hash using corresponding bifs:
+Tu podes receber as chaves ou valores do dicionário usando funções embutidas correspondentes:
 
 ```stylus
 foo = { bar: 'a', baz: 'b' }
@@ -181,7 +182,7 @@ values(foo)
 // => 'a' 'b'
 ```
 
-You can remove a key from the hash using `remove` bif:
+Tu podes remover uma chave a partir do dicionário usando a função embutida `remove`:
 
 ```stylus
 obj = { foo: 1, bar: 2 }
@@ -189,7 +190,7 @@ remove(obj, 'foo')
 // => {"bar":"(2)"}
 ```
 
-And you can use `merge` (aliased as `extend`) to merge hashes:
+E podes usar `merge` (apelidado como `extend`) para fundir os dicionários:
 
 ```stylus
 obj = {

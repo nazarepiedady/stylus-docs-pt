@@ -3,9 +3,9 @@ layout: default
 permalink: docs/media.html
 ---
 
-# @media
+# @media {#at-media}
 
-The `@media` queries work just as they do within regular CSS, but with Stylus's block notation:
+As consultas de `@media` funcionam tal como dentro da CSS regular, mas com a notação de bloco da Stylus:
 
 ```stylus
 @media print
@@ -14,7 +14,7 @@ The `@media` queries work just as they do within regular CSS, but with Stylus's 
     display none
 ```
 
-Yielding:
+Resultando em:
 
 ```css
 @media print {
@@ -25,9 +25,9 @@ Yielding:
 }
 ```
 
-## Media Query Bubbling
+## Transbordar da Consulta de Mídia {#media-query-bubbling}
 
-Media queries can be nested, too, and they will be expanded to wrap the context in which they are used. For example:
+As consultas de mídia também podem ser encaixadas, e serão expandidas para envolver o contexto no qual são usadas. Por exemplo:
 
 ```stylus
 .widget
@@ -37,7 +37,7 @@ Media queries can be nested, too, and they will be expanded to wrap the context 
     padding 20px
 ```
 
-Yielding:
+Resultando em:
 
 ```css
 .widget {
@@ -51,9 +51,9 @@ Yielding:
 }
 ```
 
-## Nested media queries
+## Consultas de Mídia Encaixada {#nested-media-queries}
 
-You can nest `@media`s one into another and they would combine into one:
+Tu podes encaixar `@media` dentro de umas das outras e combinariam em uma:
 
 ```stylus
 @media (max-width: 500px)
@@ -65,7 +65,7 @@ You can nest `@media`s one into another and they would combine into one:
       color: #100
 ```
 
-Would yield to
+Resultaria em
 
 ```css
 @media (max-width: 500px) {
@@ -80,9 +80,9 @@ Would yield to
 }
 ```
 
-## Interpolations and variables
+## Interpolações e Variáveis {#interpolations-and-variables}
 
-You can use both interpolations and variables inside media queries, so it is possible to do things like this:
+Tu podes usar ambas interpolações e variáveis dentro das consultas de mídia, então é possível fazer coisas como isto:
 
 ```stylus
 foo = 'width'
@@ -93,6 +93,7 @@ bar = 30em
 ```
 
 This would yield
+Isto resultaria em
 
 ```stylus
 @media (max-width: 30em) {
@@ -102,7 +103,7 @@ This would yield
 }
 ```
 
-It is also possible to use expressions inside MQ:
+Também é possível usar as expressões dentro das consultas de mídia:
 
 ```stylus
 .foo
@@ -111,7 +112,7 @@ It is also possible to use expressions inside MQ:
       width: 100px*i
 ```
 
-would yield to
+resultaria em
 
 ```css
 @media (min-width: 256px) {

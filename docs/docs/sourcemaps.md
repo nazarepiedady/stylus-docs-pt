@@ -3,23 +3,23 @@ layout: default
 permalink: docs/sourcemaps.html
 ---
 
-# Sourcemaps
+# Mapeamento de Código-Fonte {#sourcemaps}
 
-Stylus supports basic sourcemaps according to the [Sourcemap v3 spec](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k)
+A stylus suporta mapeamento de código-fonte básico em conformidade com a [terceira versão da especificação do mapeamento do código-fonte](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k).
 
-## Create a sourcemap
+## Criar um mapa de código-fonte {#create-a-sourcemap}
 
-Pass the `--sourcemap` flag (or `-m`) with a Stylus file. This will create a `style.css` file, and a `style.css.map` file as siblings to your `style.styl` and place a sourcemap link at the bottom of `style.css` to your sourcemap.
+Passe a opção `--sourcemap` (ou `m`) com um ficheiro de Stylus. Isto criará um ficheiro `style.css`, e um ficheiro `style.css.map` como irmão do teu `style.styl` e coloque uma ligação para o teu mapa do código-fonte no final do `style.css`.
 
 ```bash
 stylus -m style.styl
 ```
 
-You can also run this command while watching a file. For instance: `stylus -w -m style.styl`. This will update your sourcemap everytime you save.
+Tu também podes executar este comando enquando observas um ficheiro. Por exemplo: `stylus -w -m style.styl`. Isto atualizará o teu mapa de código-fonte toda vez que guardares.
 
-## JavaScript API
+## API de JavaScript {#javascript-api}
 
-Set the `sourcemap` setting with an options object or a boolean value:
+Defina o parâmetro `sourcemap` com um objeto de opções ou um valor booleano:
 
 ```js
 var stylus = require('stylus');
@@ -29,16 +29,19 @@ var style = stylus(str)
   .set('sourcemap', options);
 
 style.render(function(err, css) {
-  // generated sourcemap object
+  // objeto do mapa do código-fonte gerado
   console.log(style.sourcemap);
 });
 ```
 
-### Options
+### Opções {#options}
 
 ```bash
-`comment`     Adds a comment with the `sourceMappingURL` to the generated CSS (default: `true`)
-`inline`      Inlines the sourcemap with full source text in base64 format (default: `false`)
-`sourceRoot`  "sourceRoot" property of the generated sourcemap
-`basePath`    Base path from which sourcemap and all sources are relative (default: `.`)
+`comment`     Adiciona um comentário com o `sourceMappingURL`
+							para a CSS gerada (predefinido: `true`)
+`inline`      Incorpora o mapa do código-fonte com texto da fonte completo
+							no formato base64 (predefinido: `false`)
+`sourceRoot`  Propriedade "sourceRoot" do mapa do código-fonte gerado
+`basePath`    Caminho de base a partir do qual o mapa do código-fonte e
+							todas fontes são relativos (predefinido: `.`)
 ```

@@ -3,11 +3,11 @@ layout: default
 permalink: docs/block.html
 ---
 
-# @block {#at-block}
+# @block
 
-Tu podes atribuir qualquer bloco de código na Stylus a uma variável e depois chamá-lo, passar como argumento ou re-usar de qualquer outra maneira.
+You can assign any block of code in Stylus to a variable and then call it, pass as an argument or reuse in any other way.
 
-Para definir um bloco, podes ou escrevê-lo com uma indentação acrescentada depois de um sinal de atribuição:
+To define a block, either write it down with an increased indent after an assign sign:
 
 ```stylus
 foo =
@@ -15,7 +15,7 @@ foo =
   height: 20px
 ```
 
-ou usar uma sintaxe de chavetas com a palavra-chave `@block`:
+or use a curly braces syntax with `@block` keyword:
 
 ```stylus
 foo = @block {
@@ -24,14 +24,14 @@ foo = @block {
 }
 ```
 
-se gostarias de interpretar este bloco em qualquer sítio, poderias chamar esta variável dentro de uma interpolação, assim
+if you would like to render this block anywhere, you could call this variable inside an interpolation, so
 
 ```stylus
 .icon
   {foo}
 ```
 
-interpretaria para
+would render to
 
 ```css
 .icon {
@@ -40,6 +40,6 @@ interpretaria para
 }
 ```
 
-Já agora, esta é a mesma maneira que podes usar os blocos passados para os [misturadores de bloco](mixins.html#block-mixins).
+BTW, this is the same way you can use the blocks passed to the [block mixins](mixins.html#block-mixins).
 
-Agora só podes passar a variável como qualquer outra variável e interpretá-la dentro de uma interpolação. No futuro forneceríamos mais maneiras de manipular isto.
+Right now you can only pass the variable as any other variable and render it inside an interpolation. In future we would provide more ways of handling it.

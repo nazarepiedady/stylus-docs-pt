@@ -3,13 +3,13 @@ layout: default
 permalink: docs/error-reporting.html
 ---
 
-# Reportagem de Erro {#error-reporting}
+# Error Reporting
 
-A stylus tem um sistema de reportagem de erro para sintaxe, analise, e avaliação completa de erros com vestígios da pilha, números de linha, e nomes de ficheiro.
+Stylus has fantastic error reporting built-in for syntax, parse, and evaluation errors—complete with stack traces, line numbers, and filenames.
 
-## Erro de Analise {#parse-error}
+## Parse Error
 
-Exemplo de erro de analise:
+Parse error example:
 
 ```stylus
      body
@@ -17,7 +17,7 @@ Exemplo de erro de analise:
          == padding 5px
 ```
 
-Resulta em:
+Yielding:
 
 ```bash
 ParseError: test.styl:3:16
@@ -30,9 +30,9 @@ ParseError: test.styl:3:16
 illegal unary "==", missing left-hand operand
 ```
 
-## Erro de Avaliação {#evaluation-error}
+## Evaluation Error
 
-Este erro de "tempo de execução" ou avaliação é causado pela passagem de uma sequência de caracteres para `border-radius()`, no lugar da `Unit` esperado (com o uso do nosso auxiliar `ensure(n, 'unit')`).
+This "runtime" or evaluation error is caused by passing a string to `border-radius()`, instead of the expected `Unit` (by using our helper `ensure(n, 'unit')`).
 
 ```stylus
 ensure(val, type)
@@ -49,7 +49,7 @@ body
   border-radius '5px'
 ```
 
-Resulta em:
+Yielding:
 
 ```bash
 Error: test.styl:3:62

@@ -3,11 +3,11 @@ layout: default
 permalink: docs/js.html
 ---
 
-# API de JavaScript {#javascript-api}
+# JavaScript API
 
-Simplesmente importe o módulo usando `require`, e chame `render()` com a dada sequência de caracteres de código Stylus, e o objeto `options` opcional.
+Simply `require` the module, and call `render()` with the given string of Stylus code, and (optional) `options` object. 
 
-As abstrações utilizando a Stylus devem passar a opção `filename` para fornecer reportagem de erro melhor.
+Frameworks utilizing Stylus should pass the `filename` option to provide better error reporting.
 
 ```js
 var stylus = require('stylus');
@@ -18,7 +18,7 @@ stylus.render(str, { filename: 'nesting.css' }, function(err, css){
 });
 ```
 
-Nós também podemos fazer a mesma coisa de uma maneira mais progressiva:
+We can also do the same thing in a more progressive manner:
 
 ```js
 var stylus = require('stylus');
@@ -26,21 +26,21 @@ var stylus = require('stylus');
 stylus(str)
   .set('filename', 'nesting.css')
   .render(function(err, css){
-    // lógica
+    // logic
   });
 ```
 
-## .set(setting, value) {#set}
+## .set(setting, value)
 
-Aplica um parâmetro tal como uma `filename`, ou importa `paths`:
+Apply a setting such as a `filename`, or import `paths`:
 
-```js
+```js 
 .set('filename', __dirname + '/test.styl')
 .set('paths', [__dirname, __dirname + '/mixins'])
 ```
-## .include(path) {#include}
+## .include(path)
 
-Uma alternativa progressiva para `.set('paths',...)` é `.include()`. Isto é ideal quando estamos expondo bibliotecas externas da Stylus que expõem um caminho.
+A progressive alternative to `.set('paths',...)` is `.include()`.  This is ideal when exposing external Stylus libraries which expose a path.
 
 ```js
 stylus(str)
@@ -49,9 +49,9 @@ stylus(str)
   .render(...)
 ```
 
-## .import(path) {#import}
+## .import(path)
 
-Adia a importação do dado `path` até que a avaliação for realizada. O exemplo abaixo é essencialmente o mesmo que fazer `@import 'mixins/vendor'` dentro da tua folha de Stylus.
+Defer importing of the given `path` until evaluation is performed. The example below is essentially the same as doing `@import 'mixins/vendor'` within your Stylus sheet.
 
 ```js
 var stylus = require('../')
@@ -66,18 +66,18 @@ stylus(str)
 });
 ```
 
-## .define(name, node) {#define}
+## .define(name, node)
 
-Ao passar um `Node`, podemos definir uma variável global. Isto é útil quando estamos expondo funcionalidades condicionais dentro da tua biblioteca dependendo da disponibilidade de uma outra. Por exemplo a biblioteca de extensão **Nib** suporta condicionalmente o nó de tela (node-canvas, em Inglês), fornecendo a geração de imagem.
-
-No entanto, isto não está sempre disponível, assim a Nib pode definir:
+By passing a `Node`, we may define a global variable. This is useful when exposing conditional features within your library depending on the availability of another. For example the **Nib** extension library conditionally supports node-canvas, providing image generation. 
+ 
+However, this is not always available, so Nib may define:
 
 ```js
 .define('has-canvas', stylus.nodes.false);
 .define('some-setting', new stylus.nodes.String('some value'));
 ```
 
-A Stylus também distribui valores de JavaScript para os seus equivalentes de Stylus quando possível. Cá estão alguns exemplos:
+Stylus also casts JavaScript values to their Stylus equivalents when possible. Here are a few examples:
 
 ```js
 .define('string', 'some string')
@@ -89,7 +89,7 @@ A Stylus também distribui valores de JavaScript para os seus equivalentes de St
 .define('families', ['Helvetica Neue', 'Helvetica', 'sans-serif'])
 ```
 
-Estas mesmas regras também se aplicam aos valores de retorno nas funções de JavaScript:
+These same rules apply to return values in js functions as well:
 
 ```js
 .define('get-list', function(){
@@ -97,11 +97,11 @@ Estas mesmas regras também se aplicam aos valores de retorno nas funções de J
 })
 ```
 
-## .define(name, fn) {#define-name-fn}
+## .define(name, fn)
 
-Este método permite-te fornecer uma função definida de JavaScript para Stylus. Pense nisto como pensarias a respeitos de vinculações JavaScript-para-C++. Quando existe algo que não podes fazer em Stylus, defina-o em JavaScript!
+This method allows you to provide a JavaScript-defined function to Stylus. Think of these as you would JavaScript-to-C++ bindings. When there's something you cannot do in Stylus, define it in JavaScript!
 
-Neste exemplo, definimos quatro funções: `add()`, `sub()`, `image-width()`, e `image-height()`. Estas funções devem retornar um nó (`Node`, em Inglês), este construtor e outros nós que estiverem disponíveis através de `stylus.nodes`.
+In this example, we define four functions: `add()`, `sub()`, `image-width()`, and `image-height()`. These functions must return a `Node`, this constructor and the other nodes are available via `stylus.nodes`.
 
 ```js
 var stylus = require('../')
@@ -118,18 +118,18 @@ function sub(a, b) {
 }
 
 function imageDimensions(img) {
-  // afirma que o nó (img) é um nó de String, passando
-  // o nome do parâmetro para a reportagem de erro
+  // assert that the node (img) is a String node, passing
+  // the param name for error reporting
   utils.assertType(img, 'string', 'img');
   var path = img.val;
 
-  // Agarre os bytes necessários para recuperas as dimensões.
-  // Se este for real farias isto por formato,
-  // no lugar de ler a imagem inteira :)
+  // Grab bytes necessary to retrieve dimensions.
+  // if this was real you would do this per format,
+  // instead of reading the entire image :)
   var data = fs.readFileSync(__dirname + '/' + path);
 
   // GIF
-  // claro que suportarias... mais :)
+  // of course you would support.. more :)
   if ('GIF' == data.slice(0, 3).toString()) {
     var w = data.slice(6, 8)
       , h = data.slice(8, 10);
@@ -159,17 +159,17 @@ stylus(str)
     console.log(css);
   });
 ```
-
-Para mais referências (até a documentação estar completa) consulte os seguintes ficheiros:
-
+ 
+For further reference (until documentation is complete) please see the following files:
+ 
 ```bash
 - `lib/nodes/*`
 - `lib/utils.js`
 ```
 
-## .use(fn) {#use-fn}
+## .use(fn)
 
-Quando chamado, a dada `fn` é invocada com o interpretador, permitindo que todos os métodos acima sejam usados. Isto permite as extensões exporem facilmente a si mesmas, definindo funções, caminhos etc.
+When called, the given `fn` is invoked with the renderer, allowing all of the methods above to be used. This allows for plugins to easily expose themselves, defining functions, paths etc.
 
 ```js
 var mylib = function(style){
@@ -181,8 +181,8 @@ stylus(str)
   .use(mylib)
   .render(...)
 ```
-
-Quando chamamos o método `rende()` com opções, a opção `use` pode ser dado a uma função ou arranjo de funções pode ser invocado com o interpretador.
+When calling the `render()` method with options, the `use` option can be given
+a function or array of functions to be invoked with the renderer.
 
 ```stylus
 stylus.render(str, { use: mylib }, function(err, css){
@@ -191,9 +191,9 @@ stylus.render(str, { use: mylib }, function(err, css){
 });
 ```
 
-## .deps() {#deps}
+## .deps()
 
-Retorna o arranjo de dependências (importa os ficheiros):
+Returns array of dependencies (import files):
 
 ```stylus
 stylus('@import "a"; @import "b"')
@@ -201,12 +201,11 @@ stylus('@import "a"; @import "b"')
 
 // => ['a.styl', 'b.styl']
 ```
+See also [--deps CLI flag](https://stylus-lang.com/docs/executable.html#list-dependencies).
 
-Consulte também a [opção --deps da interface de linha de comando](https://stylus-lang.com/docs/executable.html#list-dependencies).
+## stylus.resolver([options])
 
-## stylus.resolver([options]) {#stylus-resolver}
-
-A função opcional embutida que pode ser usado para resolver urls relativas dentro dos ficheiros importados:
+Optional built-in function which may be used to resolve relative urls inside imported files:
 
 ```stylus
 stylus(str)
@@ -216,9 +215,9 @@ stylus(str)
   });
 ```
 
-Consulte também a [opção --resolve da interface de linha de comando](https://stylus-lang.com/docs/executable.html#resolving-relative-urls-inside-imports).
+See also [--resolve-url CLI flag](https://stylus-lang.com/docs/executable.html#resolving-relative-urls-inside-imports).
 
-Opções:
+Options:
 
 ```bash
 - `paths` additional resolution path(s)

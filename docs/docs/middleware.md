@@ -3,36 +3,35 @@ layout: default
 permalink: docs/middleware.html
 ---
 
-# Intermédiario Connect {#connect-middleware}
+# Connect Middleware
 
-A stylus é disponibilizada com o intermédiario [Connect](https://github.com/senchalabs/connect) para compilação automática de folhas de stylus sempre forem modificados.
+Stylus ships with [Connect](https://github.com/senchalabs/connect) middleware for auto-compiling Stylus sheets whenever they're modified.
 
-## stylus.middleware(options) {#stylus-middleware-options}
+## stylus.middleware(options)
 
-### Opções {#options}
+### Options
 
-Retorna o intermédiario Connect com a dada `options`.
+Return Connect middleware with the given `options`.
 
 ```bash
-`serve`     Servir os ficheiros stylus a partir do `dest` [true]
-`force`     Recompilar sempre
-`src`       Diretório fonte usado para encontrar ficheiros `.styl`
-`dest`      Diretório de destino usado para saída de ficheiros `.css`
-            quando não-definido padronizado para `src`.
-`compile`   Função compilação personalizada, aceitando os argumentos
+`serve`     Serve the stylus files from `dest` [true]
+`force`     Always re-compile
+`src`       Source directory used to find .styl files
+`dest`      Destination directory used to output .css files
+            when undefined defaults to `src`.
+`compile`   Custom compile function, accepting the arguments
             `(str, path)`.
-`compress`  Se os ficheiros `.css` de saída deveriam ser compactados
-`firebug`   Imprime informações de depuração no css gerado que pode
-            ser usado pela extensão de Firebug FireStylus
-`linenos`   Imprime comentários no css gerado indicando
-            a linha de stylues correspondente
-`sourcemap` Gera um mapa do código-fonte no versão 3 do formato
-						de mapas de código-fonte
+`compress`  Whether the output .css files should be compressed
+`firebug`   Emits debug infos in the generated css that can
+            be used by the FireStylus Firebug plugin
+`linenos`   Emits comments in the generated css indicating 
+            the corresponding stylus line
+`sourcemap` Generates a sourcemap in sourcemaps v3 format
 ```
 
-### Exemplos {#examples}
+### Examples
 
-Serve os ficheiros `.styl` a partir do `./public`:
+Serve .styl files from ./public:
 
 ```js
 var app = connect();
@@ -40,7 +39,8 @@ var app = connect();
 app.middleware(__dirname + '/public');
 ```
 
-Mude as opções `src` e `dest` para alterar onde os ficheiros `.styl` são carregados ou onde são guardados:
+Change the `src` and `dest` options to alter where .styl files
+are loaded and where they're saved:
 
 ```js
 var app = connect();
@@ -51,9 +51,12 @@ app.middleware({
 });
 ```
 
-Nesta seção definimos uma função de compilação personalizada para que possamos definir a opção `compress`, ou definir funções adicionais.
-
-Por padrão a função de compilação simplesmente define `filename` e produz a CSS. No seguinte caso estamos a compactar a saída, usando a extensão da biblioteca "nib", e importando-a automaticamente.
+Here we set up the custom compile function so that we may
+set the `compress` option, or define additional functions.
+ 
+By default the compile function simply sets the `filename`
+and renders the CSS. In the following case we're compressing
+the output, using the "nib" library plugin, and auto-importing it.
 
 ```js
 function compile(str, path) {
@@ -65,7 +68,7 @@ function compile(str, path) {
 }
 ```
 
-Passe-a como uma opção desta maneira:
+Pass it as an option like so:
 
 ```js
 var app = connect();

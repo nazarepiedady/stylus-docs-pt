@@ -3,10 +3,10 @@ layout: default
 permalink: docs/literal.html
 ---
 
-# Literal de CSS {#css-literal}
+# CSS Literal
 
-Se por qualquer razão a stylus não poder contemplar uma necessidade específica, podes sempre recorrer a literal de CSS com `@css`:
-
+If for any reason Stylus cannot accommodate a specific need, you can always resort to literal CSS with `@css`:
+ 
 ```css
 @css {
     .ie-opacity {
@@ -16,10 +16,10 @@ Se por qualquer razão a stylus não poder contemplar uma necessidade específic
 }
 ```
 
-Compilando para:
+Compiling to:
 
 ```stylus
-.ie-opacity {  
+.ie-opacity {        
     filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=25)";
 }

@@ -3,11 +3,14 @@ layout: default
 permalink: docs/kwargs.html
 ---
 
-# Argumentos de Palavra-Chave {#keyword-arguments}
+# Keyword Arguments
 
-A Stylus suporta argumentos de palavra-chave, ou "kwargs". Estes permitem-te referenciar os argumentos pelo nome de parâmetro associado.
+ Stylus supports keyword arguments, or "kwargs". These allow you to reference arguments by their associated parameter name.
 
-Os exemplos mostrados abaixo são funcionalmente equivalente. No entanto, podemos colocar os argumentos de palavra-chave em qualquer lugar dentro da lista. Os argumentos restantes que _não_ são chaves serão aplicados aos parâmetros que não têm sido satisfeitos.
+The examples shown below are functionally equivalent. However, we can
+place keyword arguments anywhere within the list. The remaining arguments
+that are _not_ keyed will be applied to the parameters that have not
+been satisfied.
 
 ```stylus
 body {
@@ -18,7 +21,7 @@ body {
 }
 ```
 
-Resultando em:
+Yielding:
 
 ```css
 body {
@@ -29,13 +32,13 @@ body {
 }
 ```
 
-Para ver quais parâmetros uma função ou misturador aceita, use a função `p()`:
+To see what parameters a function or mixin accept, use the `p()` function:
 
 ```stylus
 p(rgba)
 ```
 
-Resultando em:
+Yielding:
 
 ```bash
 inspect: rgba(red, green, blue, alpha)

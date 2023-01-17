@@ -3,15 +3,18 @@ layout: default
 permalink: docs/introspection.html
 ---
 
-# API de Introspeção {#introspection-api}
+# Introspection API
 
-A Stylus suporta uma API de introspeção. Isto permite que os misturadores e funções reflitam o chamador, etc.
+ Stylus supports an introspection API. This allows mixins and functions to reflect relative to the caller, etc.
 
-## mixin {#mixin}
 
-A variável local `mixin` é atribuída automaticamente dentro dos corpos de função. Ela contém uma sequência de caracteres `root` se a função for chamada no nível da raiz, ou `block` a indicar o contrário, e finalmente `false` se a função invocada esperar  um valor de retorno.
+## mixin
 
-No exemplo seguinte, definimos `reset()` para alterar o seu comportamento dependendo se está misturado para a raiz, para um outro bloco, ou para um valor de retorno, conforme usado na propriedade `foo` abaixo:
+The `mixin` local variable is automatically assigned within function bodies.
+It contains the string `root` if the function was called at the root
+level, or `block` indicating otherwise, and finally `false` if the invoked function expects a return value.
+
+In the following example, we define `reset()` to alter its behaviour depending on whether it's mixed into root, into another block, or into a return value, as used in the `foo` property below:
 
 ```stylus
 reset()
@@ -30,7 +33,7 @@ body
   foo reset()
 ```
 
-Resulta em:
+Compiles to:
 
 ```css
 got {

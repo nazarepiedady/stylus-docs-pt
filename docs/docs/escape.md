@@ -3,18 +3,18 @@ layout: default
 permalink: docs/escape.html
 ---
 
-# Escapamento de Carácter {#char-escaping}
+# Char Escaping
 
-A Stylus permite-te escapar caracteres. Isto transforma-os efetivamente em identificadores, permitindo-os serem interpretados como literais.
-
-Por exemplo:
+Stylus lets you escape characters. This effectively turns them into identifiers, allowing them to be rendered as literals. 
+ 
+For example:
 
 ```stylus
 body
   padding 1 \+ 2
 ```
 
-Compila para:
+Compiles to:
 
 ```css
 body {
@@ -22,7 +22,7 @@ body {
 }
 ```
 
-Nota que a Stylus exige que `/` está entre parênteses quando usada em uma propriedade:
+Note that Stylus requires that `/` is parenthesized when used in a property:
 
 ```stylus
 body
@@ -30,7 +30,7 @@ body
   font (14px/1.4)
 ```
 
-resulta em:
+yields:
 
 ```css
 body {

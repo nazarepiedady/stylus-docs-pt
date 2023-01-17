@@ -3,11 +3,11 @@ layout: default
 permalink: docs/compare.html
 ---
 
-# Comparações de Implementação {#implementation-comparisons}
+# Implementation Comparisons
 
-Nesta seção comparamos a Stylus com outras implementações de pré-processadores.
+Below we go head to head with other implementations.
 
-## Variáveis {#variables}
+## Variables
 
 SCSS:
 
@@ -30,7 +30,7 @@ main-color = #006
 color: main-color
 ```
 
-## Misturadores {#mixins}
+## Mixins
 
 SCSS:
 
@@ -66,7 +66,7 @@ pad(x, y)
   pad(5px, 10px)
 ```
 
-## Exemplo Complexo {#complex-example}
+## Complex Example
 
 SCSS:
 

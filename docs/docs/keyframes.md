@@ -3,9 +3,9 @@ layout: default
 permalink: docs/keyframes.html
 ---
 
-# @keyframes {#keyframes}
+# @keyframes
 
-A Stylus suporta `@keyframes` tanto com chavetas ou sem elas, também podes usar a interpolação tanto nos nomes ou fases do `@keyframes`:
+Stylus supports `@keyframes` both with curly braces or without them, you can also use interpolation both in names or steps of @keyframes:
 
 ```stylus
 $keyframe-name = pulse
@@ -15,7 +15,7 @@ $keyframe-name = pulse
       opacity (i/10)
 ```
 
-Resultando em (prefixos expandidos omitidos):
+Yielding (expanded prefixes ommited):
 
 ```css
 @keyframes pulse {
@@ -40,13 +40,13 @@ Resultando em (prefixos expandidos omitidos):
 }
 ```
 
-## Expansão {#expansion}
+## Expansion
 
-Ao usar a `@keyframes`, as tuas regras são automaticamente expandidas para os prefixos definidos pela variável `vendors` (padrão: `moz webkit o ms official`). Isto significa que podemos alterá-lo em qualquer momento para a expansão surtir efeito imediatamente.
+By using `@keyframes`, your rules are automatically expanded to the vendor prefixes defined by the `vendors` variable (default: `moz webkit o ms official`). This means we can alter it at any time for the expansion to take effect immediately. 
 
-**Nota que a expansão da `@keyframes` para as regras arroba prefixadas seriam removidas da Stylus quando chegássemos nela**.
+**Note that expansion of `@keyframes` to the prefixed at-rules would be removed from the Stylus 1.0 when we'd get to it**
 
-Por exemplo, considere o seguinte:
+For example, consider the following:
 
 ```css
 @keyframes foo {
@@ -59,7 +59,7 @@ Por exemplo, considere o seguinte:
 }
 ```
 
-Isto expande para os três prefixos padrão, e a sintaxe oficial:
+This expands to our three default vendors, and the official syntax:
 
 ```css
 @-moz-keyframes foo {
@@ -96,7 +96,7 @@ Isto expande para os três prefixos padrão, e a sintaxe oficial:
 }
 ```
 
-Se quiséssemos limitar a sintaxe oficial apenas, simplesmente alteramos a `vendors`:
+If we wanted to limit to the official syntax only, simply alter `vendors`:
 
 ```stylus
 vendors = official
@@ -111,7 +111,7 @@ vendors = official
 }
 ```
 
-Resultando em:
+Yielding:
 
 ```css
 @keyframes foo {

@@ -3,13 +3,13 @@ layout: default
 permalink: docs/mixins.html
 ---
 
-# Combinadores {#mixins}
+# Mixins
 
-Tanto os combinadores e funções são definidas da mesma maneira, mas eles são aplicados de maneiras diferentes.
+Both mixins and functions are defined in the same manner, but they are applied in different ways. 
 
-Por exemplo, temos uma função `border-radius(n)` definida abaixo, que é invocada como um _combinador_ (por exemplo, invocada como uma declaração, em vez de uma parte de uma expressão).
+For example, we have a `border-radius(n)` function defined below, which is invoked as a _mixin_ (i.e., invoked as a statement, rather than part of an expression).
 
-Quando `border-radius()` é invocado dentro de um seletor, as propriedades são expandidas e copiadas para o seletor.
+When `border-radius()` is invoked within a selector, the properties are expanded and copied into the selector.
 
 ```stylus
 border-radius(n)
@@ -21,7 +21,7 @@ form input[type=button]
   border-radius(5px)
 ```
 
-Compila para:
+Compiles to:
 
 ```css
 form input[type=button] {
@@ -31,7 +31,7 @@ form input[type=button] {
 }
 ```
 
-Quando estiveres a usar os combinadores podes omitir os parêntesis completamente, fornecendo suporte transparente de propriedade ambulante fantástico!
+When using mixins you can omit the parentheses altogether, providing fantastic transparent vendor property support!
 
 ```stylus
 border-radius(n)
@@ -43,10 +43,9 @@ form input[type=button]
   border-radius 5px
 ```
 
-Nota que o `border-radius` dentro do nosso combinador é tratado como uma propriedade, e não uma invocação de função recursiva.
+Note that the `border-radius` within our mixin is treated as a property, and not a recursive function invocation. 
 
-
-Para levar isto mais adiante, podemos utilizar a variável local automática `arguments`, contendo a expressão passada, permitindo que vários valores sejam passados:
+To take this further, we can utilize the automatic `arguments` local variable, containing the expression passed, allowing multiple values to be passed:
 
 ```stylus
 border-radius()
@@ -55,9 +54,9 @@ border-radius()
   border-radius arguments
 ```
 
-Agora podemos passar valores como `border-radius 1px 2px / 3px 4px`!
+Now we can pass values like `border-radius 1px 2px / 3px 4px`!
 
-Além disto podemos fazer uso da [interpolação](https://stylus-lang.com/docs/interpolation.html) `{param}`:
+Also we can make use of the [interpolation](https://stylus-lang.com/docs/interpolation.html) `{param}`:
 
 ```stylus
 border(side, args...)
@@ -73,8 +72,8 @@ border(side, args...)
   border('' , 1px, 'darkred')
 ```
 
-Resultando em:
-
+Rendering: 
+	
 ```stylus
 .border-thick {
   border-left: 10px 'darkred';
@@ -84,7 +83,7 @@ Resultando em:
 }
 ```
 
-Um outro excelente uso disto é a adição de suporte transparente para especificações ambulantes—tais como suporte a `opacity` para Internet Explorer:
+Another great use of this is the addition of transparent support for vendor-specifics—such as `opacity` support for IE:
 
 ```stylus
 support-for-ie ?= true
@@ -99,7 +98,7 @@ opacity(n)
     opacity 0.5
 ```
 
-Resultando em:
+Rendering:
 
 ```css
 #logo:hover {
@@ -108,11 +107,11 @@ Resultando em:
 }
 ```
 
-## Referências do Pai {#parent-references}
+## Parent References
 
-Os combinadores podem utilizar o caractér de referência do pai `&`, agindo sobre o pai no lugar de encaixamento mais adiante.
-
-Por exemplo, vamos dizer que queremos criar um combinador `stripe(even, odd)` para estilizar as linhas da tabela como se fossem faixas. Nós fornecemos ambos `even` e `odd` com valores de cor padrão, e atribuimos a propriedade `background-color` sobre a linha. Encaixado dentro do `tr` usamos `&` para fazer referência ao `tr`, fornecendo a cor `even`.
+Mixins may utilize the parent reference character `&`, acting on the parent instead of further nesting. 
+ 
+For example, let's say we want to create a `stripe(even, odd)` mixin for striping table rows. We provide both `even` and `odd` with default color values, and assign the `background-color` property on the row. Nested within the `tr` we use `&` to reference the `tr`, providing the `even` color.
 
 ```stylus
 stripe(even = #fff, odd = #eee)
@@ -123,7 +122,7 @@ stripe(even = #fff, odd = #eee)
       background-color even
 ```
 
-Nós podemos então utilizar o combinador como mostrado abaixo:
+We may then utilize the mixin as shown below:
 
 ```stylus
 table
@@ -137,7 +136,7 @@ table#users
     color white
 ```
 
-Alternativamente, `stripe()` poderia ser definida sem a referência ao elemento pai:
+Alternatively, `stripe()` could be defined without parent references:
 
 ```stylus
 stripe(even = #fff, odd = #eee)
@@ -148,22 +147,22 @@ stripe(even = #fff, odd = #eee)
     background-color even
 ```
 
-Se desejassemos, poderiamos invocar `stripe()` como se ela fosse uma propriedade:
+If we wished, we could invoke `stripe()` as if it were a property:
 
 ```stylus
 stripe #fff #000
 ```
 
-## Combinadores de Bloco {#block-mixins}
+## Block mixins
 
-Tu podes passar blocos para os combinadores chamando o combinar com o prefixo `+`:
+You can pass blocks to mixins by calling mixin with `+` prefix:
 
 ```stylus
 +foo()
   width: 10px
 ```
 
-O bloco passado estaria disponível dentro do combinador como variável `block`, que depois poderia ser usada dentro da interpolação:
+The passed block would be available inside the mixin as `block` variable, that then could be used with interpolation:
 
 ```stylus
 foo()
@@ -178,14 +177,14 @@ foo()
     }
 ```
 
-Esta funcionalidade está dentro do seu estado de rascunho (ATM), mas seria melhorada no futuro.
+This feature is in its rough state ATM, but would be enhanced in the future.
 
-## Combinando Combinadores dentro de Combinadores {#mixing-mixins-in-mixins}
+## Mixing Mixins in Mixins
 
-Os combinadores podem (com certeza!) utilizar outros combinadores, contruindo sobre os seus seletores e propriedades.
-
-Por exemplo, abaixo criamos `comma-list()` para incorporar (através de `inline-list()`) e separar por vírgula uma lista não ordenada.
-
+Mixins can (of course!) utilize other mixins, building upon their own selectors and properties. 
+ 
+For example, below we create `comma-list()` to inline (via `inline-list()`) and comma-separate an unordered list.
+ 
 ```stylus
 inline-list()
   li
@@ -203,7 +202,7 @@ ul
   comma-list()
 ```
 
-Resultando em:
+Rendering:
 
 ```css
 ul li:after {

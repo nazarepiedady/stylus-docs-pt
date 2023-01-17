@@ -3,14 +3,14 @@ layout: default
 permalink: docs/iteration.html
 ---
 
-# Iteração {#iteration}
+# Iteration
 
-A stylus permite-te iterar expressões através do construtor `for/in`, assumindo a forma de:
-
+Stylus allows you to iterate expressions via the `for/in` construct, taking the form of:
+ 
 ```bash
 for <val-name> [, <key-name>] in <expression>
 ```
-Por exemplo:
+For example:
 
 ```stylus
 body
@@ -18,7 +18,7 @@ body
     foo num
 ```
 
-Resulta em:
+Yields:
 
 ```stylus
 body {
@@ -28,7 +28,7 @@ body {
 }
 ```
 
-O exemplo abaixo mostra como usar a `<key-name>`:
+The example below shows how to use the `<key-name>`:
 
 ```stylus
 body
@@ -37,7 +37,7 @@ body
     foo i font
 ```
 
-Resultando em:
+Yielding:
 
 ```css
 body {
@@ -47,7 +47,7 @@ body {
 }
 ```
 
-E cá está como fazes um laço `for` normal
+And here's how you do a regular for loop
 
 ```stylus
 body
@@ -55,7 +55,7 @@ body
     foo num
 ```
 
-Resulta em:
+Yields:
 
 ```css
 body {
@@ -67,7 +67,7 @@ body {
 }
 ```
 
-Uso com sequências de caracteres:
+Usage with strings:
 
 ```stylus
 for num in (1..10)
@@ -79,12 +79,12 @@ for num in (1..10)
     100% { left: (num * 30px) }
 ```
 
-## Combinadores {#mixins}
+## Mixins
 
-Nós podemos usar a iteração dentro dos combinadores para produzir uma funcionalidade poderosa. Por exemplo, podemos aplicar pares de expressão como propriedades com uso de interpolação e iteração.
-
-Abaixo definimos `apply()`, utilizando condicionalmente todos os `arguments` para que as listas de expressão _e_ delimitadas com virgula sejam suportadas:
-
+We can use iteration within mixins to produce powerful functionality. For example, we can apply expression pairs as properties using interpolation and iteration. 
+ 
+Below we define `apply()`, conditionally utilizing all the `arguments` so that comma-delimited _and_ expression lists are supported:
+ 
 ```stylus
 apply(props)
   props = arguments if length(arguments) > 1
@@ -99,9 +99,9 @@ body
   apply(list)
 ```
 
-## Funções {#functions}
+## Functions
 
-As funções de stylus também podem conter laços `for`. Abaixo estão alguns exemplos de casos de uso:
+Stylus functions may also contain for-loops. Below are some example use-cases:
 
 Sum:
 
@@ -130,10 +130,9 @@ join(', ', foo bar baz)
 // => "foo, bar, baz"
 ```
 
-## Sufixo {#postfix}
+## Postfix
 
-Da mesma maneira que o `if` / `unless` pode ser utilizada após a declaração, o mesmo pode ser feito com `for`. Abaixo estão os mesmos exemplos que os de cima utilizando a sintaxe de sufixo:
-
+Much like `if` / `unless` may be utilized post-statement, the same can be done with `for`. Below are the same examples as above utilizing the postfix syntax:
 
 ```stylus
 sum(nums)
@@ -146,7 +145,8 @@ join(delim, args)
   buf += i ? delim + arg : arg for arg, i in args
 ```
 
-Nós também podemos __retornar__ a partir de dentro de um laço, abaixo está um exemplo retornando o número quando `n % 2 == 0` avaliar para __verdadeiro__ (`true`).
+We can also __return__ from within a loop, below is an example returning the
+number when `n % 2 == 0` evaluates to __true__.
 
 ```stylus
 first-even(nums)

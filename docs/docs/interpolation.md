@@ -3,11 +3,11 @@ layout: default
 permalink: docs/interpolation.html
 ---
 
-# Interpolação {#interpolation}
+# Interpolation
 
-A Stylus suporta interpolação com o uso dos caracteres `{}` para envolver uma expressão, que depois torna-se parte do identificador. Por exemplo, `-webkit-{'border' + '-radius'}` avalia para `-webkit-border-radius`.
+Stylus supports interpolation by using the `{}` characters to surround an expression, which then becomes part of the identifier. For example, `-webkit-{'border' + '-radius'}` evaluates to `-webkit-border-radius`.
 
-Um excelente exemplo de caso de uso para isto é a expansão de propriedades com prefixos.
+A great example use-case for this is expanding properties with vendor prefixes.
 
 ```stylus
 vendor(prop, args)
@@ -25,7 +25,7 @@ button
   border-radius 1px 2px / 3px 4px
 ```
 
-Resulta em:
+Yields:
 
 ```css
 button {
@@ -35,9 +35,9 @@ button {
 }
 ```
 
-## Interpolação de Seletor {#selector-interpolation}
+## Selector Interpolation
 
-A interpolação também funciona com os seletores. Por exemplo, podemos iterar para atribuir a propriedade `height` para as primeiras 5 linhas em uma tabela, conforme mostrado abaixo:
+Interpolation works with selectors as well. For example, we may iterate to assign the `height` property for the first 5 rows in a table, as shown below:
 
 ```stylus
 table
@@ -46,7 +46,7 @@ table
       height: 10px * row
 ```
 
-Resulta em:
+Yields:
 
 ```css
 table tr:nth-child(1) {
@@ -66,7 +66,7 @@ table tr:nth-child(5) {
 }
 ```
 
-Tu também podes organizar vários seletores em uma variável com a construção de uma sequência de caracteres e interpolá-las em algum ponto:
+You may also put together multiple selectors into one variable by building a string and interpolate them in place:
 
 ```stylus
 mySelectors = '#foo,#bar,.baz'
@@ -75,7 +75,7 @@ mySelectors = '#foo,#bar,.baz'
   background: #000
 ```
 
-Resulta em:
+Yields:
 
 ```css
 #foo,

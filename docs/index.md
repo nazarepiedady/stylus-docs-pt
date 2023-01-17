@@ -3,36 +3,36 @@ layout: home
 sidebar: false
 
 title: Stylus
-titleTemplate: Uma linguagem de CSS expressiva, robusta e rica em funcionalidade construida para plataforma de Node.js
+titleTemplate: An expressive, robust, feature-rich CSS language built for nodejs
 
 hero:
   name: Stylus
-  text: Folhas de estilos expressivas, dinâmicas e robustas
-  tagline: Uma linguagem de CSS expressiva, robusta e rica em funcionalidade construida para plataforma de Node.js
+  text: Expressive, dynamic and robust CSSs
+  tagline: An expressive, robust, feature-rich CSS language built for nodejs
   image:
     src: /logo.svg
     alt: Stylus
   actions:
     - theme: brand
-      text: Começar
+      text: Get Started
       link: /docs/executable
     - theme: alt
-      text: Funcionalidades
+      text: Features
       link: /docs/
     - theme: alt
       text: Stylus vs Less vs Sass
       link: /docs/compare
     - theme: alt
-      text: Ver na GitHub
+      text: View on GitHub
       link: https://github.com/stylus/stylus
 
 features:
-  - title: Nascido para Node.js
-    details: TJ cria este projeto para o ecossistema de Node.js desde 2010
-  - title: Compatível com CSS
-    details: Não gostas da sintaxe indentada? tudo bem, porque é opcional! Tu podes escrever a stylus tal como CSS normal sem problemas
-  - title: Suporte de IDE
-    details: Tanto o Visual Studio Code (com a extensão stylus) e o WebStorm (embutido) suportam o desenvolvimento de stylus
-  - title: Tudo é opcional
-    details: chavetas, pontos e virgulas e muito mais podem ser omitidos no teu código, para o manter limpo e menor
+  - title: Born for Nodejs
+    details: TJ create this project for nodejs ecosystem since 2010
+  - title: CSS Compatible
+    details: Don't like indented syntax ? ok, it's optional! You can write stylus like css-style without pain
+  - title: IDE support
+    details: Both VSCode (with stylus extension) and WebStorm (builtin) support stylus development
+  - title: All optional
+    details: braces, semi-colons and more can be omit in your code, keep clean and less
 ---

@@ -3,11 +3,11 @@ layout: default
 permalink: docs/operators.html
 ---
 
-# Operadores {#operators}
+# Operators
 
-## Precedência de Operador {#operator-precedence}
+## Operator Precedence
 
-Nesta seção está a table de precedência de operador, do mais alta à mais baixa:
+Below is the operator precedence table, highest to lowest:
 
 ```bash
 .
@@ -28,9 +28,9 @@ not
 if unless
 ```
 
-## Operadores Unários {#unary-operators}
+## Unary Operators
 
-Os seguintes operadores unários estão disponíveis, `!`, `not`, `-`, `+`, e `~`.
+The following unary operators are available, `!`, `not`, `-`, `+`, and `~`.
 
 ```stylus
 !0
@@ -57,8 +57,7 @@ not true
 not not true
 // => true
 ```
-
-O operador lógico `not` tem precedência baixa, portanto o seguinte exemplo poderia ser substítuido com:
+The logical `not` operator has low precedence, therefore the following example could be replaced with
 
 ```stylus
 a = 0
@@ -69,7 +68,7 @@ b = 1
 // parsed as: (!a) and (!b)
 ```
 
-Com:
+With:
 
 ```stylus
 not a or b
@@ -77,12 +76,12 @@ not a or b
 // parsed as: not (a or b)
 ```
 
-## Operadores Binário {#binary-operators}
+## Binary Operators
 
-### Subscrito [] {#subscript}
+### Subscript []
 
-O operador de subscrito permite-nos agarrar um valor dentro de uma expressão através do índice (baseado em zero).
-Os valores de índice negativo começam com o último elemento na expressão.
+The subscript operator allows us to grab a value inside an expression via index (zero-based).
+Negative index values starts with the last element in the expression.
 
 ```stylus
 list = 1 2 3
@@ -93,9 +92,9 @@ list[-1]
 // => 3
 ```
 
-As expressões entre parêntesis podem agir como túplas (por exemplo `(15px 5px)`, `(1 2 3)`).
-
-Nesta seção está um exemplo que usa túplas para manipulação de erro (e mostrando a versatilidade desta construção):
+Parenthesized expressions may act as tuples (e.g. `(15px 5px)`, `(1 2 3)`).
+ 
+Below is an example that uses tuples for error handling (and showcasing the versatility of this construct):
 
 ```stylus
 add(a, b)
@@ -118,17 +117,17 @@ body
   // => padding: "a and b must be units";
 ```
 
-Nesta seção está um exemplo mais complexo. Agora estamos a invocar a função embutida `error()` com o retorno da mensagem de erro, sempre que o identificador (o primeiro valor) for igual a `error`.
-
+Here's a more complex example. Now we're invoking the built-in `error()` function with the return error message, whenever the ident (the first value) equals `error`.
+ 
 ```stylus
 if (val = add(1,'5'))[0] == error
   error(val[1])
 ```
 
-## Limite .. ... {#range}
+## Range .. ...
 
-Ambos operadores de limite inclusívo (`..`) e exclusívo (`...`) são fornecidos, expandindos para expressões:
-
+Both the inclusive (`..`) and exclusive (`...`) range operators are provided, expanding to expressions:
+ 
 ```stylus
 1..5
 // => 1 2 3 4 5
@@ -140,9 +139,9 @@ Ambos operadores de limite inclusívo (`..`) e exclusívo (`...`) são fornecido
 // => 5 4 3 2 1
 ```
 
-### Aditivo: + - {#additive}
+### Additive: + -
 
-Os operadores binários aditivos e multiplicativos funcionam como esperado. A conversão de tipo é aplicada dentro das classes de tipo unitário ou predefinido para o valor literal. Por exemplo, `5s - 2px` resulta em `3s`.
+Multiplicative and additive binary operators work as expected. Type conversion is applied within unit type classes, or default to the literal value. For example `5s - 2px` results in `3s`.
 
 ```stylus
 15px - 5px
@@ -167,7 +166,7 @@ Os operadores binários aditivos e multiplicativos funcionam como esperado. A co
 // => "num 15"
 ```
 
-### Multiplicativo: / * % {#multiplicative}
+### Multiplicative: / * %
 
 ```stylus
 2000ms + (1s * 2)
@@ -180,23 +179,23 @@ Os operadores binários aditivos e multiplicativos funcionam como esperado. A co
 // => 0
 ```
 
-Quando usas `/` dentro de um valor de propridade, **deves** envolver com parêntesis. Caso contrário o `/` é tomado literalmente (para suportar `line-height` de CSS):
+When using `/` within a property value, you **must** wrap with parens. Otherwise the `/` is taken literally (to support CSS `line-height`):
 
 ```stylus
 font: 14px/1.5;
 ```
 
-Mas o seguinte é avaliado como `14px` ÷ `1.5`:
+But the following is evaluated as `14px` ÷ `1.5`:
 
 ```stylus
 font: (14px/1.5);
 ```
 
-Isto é _somente_ exigido para o operador `/`.
+This is _only_ required for the `/` operator.
 
-### Operadores abreviados: += -= *= /= %= {#shorthand-operators}
+### Shorthand operators: += -= *= /= %=
 
-Operadores abreviados funcionam como em outra linguagem comum. Com a variável de lista, o primeiro valor serão usados para executar os operadores e sobrescrever a lista para torná-la em uma variável valor único. Com a sequência de caracteres, apenas os valores de nó += funcionam como uma função de anexação. Com valor de tipo númerico, todos os operadores funcionam exatamente como um operador matemático normal. O mesmo é para o valor de cor.
+Shorthand operators works like other common language. With list variable, the first value will be use to execute the operators and overwrite the list to turn it to a single-value variable. With string, node values only += works as an appending function. With number type value, all operators work exactly like a normal math. Similar for color value.
 
 ```stylus
 n = 12
@@ -222,21 +221,21 @@ s += 2
 
 c = #0e0
 c -= #0e0
-// => c = #000  
+// => c = #000    
 ```
 
-### Expoente: ** {#exponent}
+### Exponent: **
 
-O operador exponencial:
+The Exponent operator:
 
 ```stylus
 2 ** 8
 // => 256
 ```
 
-### Iqualdade & Relacional: == != >= <= > < {#equality-and-relational}
+### Equality & Relational: == != >= <= > <
 
-Operadores de igualdade podem ser usados para verificar a igualdade de unidades, cores, sequência de caracteres, e até mesmo identificadores. Isto é um conceito poderoso, até mesmo identificadores arbitrários (tais como `wahoo`) podem ser utilizados como átomos. Uma função poderia retornar `yes` ou `no` no lugar de `true` e `false` (embora não aconselhado).
+Equality operators can be used to equate units, colors, strings, and even identifiers. This is a powerful concept, as even arbitrary identifiers (such as as `wahoo`) can be utilized as atoms. A function could return `yes` or `no` instead of `true` or `false` (although not advised). 
 
 ```stylus
 5 == 5
@@ -279,9 +278,9 @@ true is true
 // => false
 ```
 
-Apenas os valores exatos correspondem. Por exemplo, `0 == false` e `null == false` são ambos `false`.
+Only exact values match. For example, `0 == false` and `null == false` are both `false`.
 
-Pseudónimos:
+Aliases:
 
 ```stylus
 ==    is
@@ -289,20 +288,20 @@ Pseudónimos:
 !=    isnt
 ```
 
-## Veracidade {#truthfulness}
+## Truthfulness
 
-Quase tudo dentro da stylus resolve para `true`, incluindo unidades com um sufixo. Até mesmo `0%`, `0px`, etc. resolverá para `true` (porque é comum na stylus as combinações ou funções aceitarem unidades como válido).
+Nearly everything within Stylus resolves to `true`, including units with a suffix. Even `0%`, `0px`, etc. will resolve to `true` (because it's common in Stylus for mixins or functions to accept units as valid). 
+ 
+However, `0` itself is `false` in terms of arithmetic. 
+ 
+Expressions (or "lists") with a length greater than 1 are considered truthy.
 
-No entanto, o próprio `0` é `false` nos termos aritméticos.
-
-Expressões (ou "listas") com um comprimento maior do que 1 são considerados verdadeiros.
-
-Exemplos de `true`:
+`true` examples:
 
 ```stylus
-      0%
+      0% 
       0px
-      1px
+      1px 
       -1
       -1px
       hey
@@ -311,18 +310,17 @@ Exemplos de `true`:
       ('' '')
 ```
 
-Exemplos de `false`:
+`false` examples:
 
 ```stylus
-0
+0 
 null
 false
 ''
 ```
+### Logical Operators: && || and or
 
-### Operadores Lógicos: && || and or {#logical-operators}
-
-Os operadores lógicos `&&` e `||` são apelidados de `and` e `or` que aplicam a mesma precedência.
+Logical operators `&&` and `||` are aliased `and` / `or` which apply the same precedence.
 
 ```stylus
 5 && 3
@@ -338,11 +336,11 @@ Os operadores lógicos `&&` e `||` são apelidados de `and` e `or` que aplicam a
 // => true
 ```
 
-### Operador de Existência: in {#existence-operator-in}
+### Existence Operator: in
 
-Consulta a existência do operando _à esquerda_ dentro da expressão _à direita_.
+Checks for the existence of the _left-hand_ operand within the _right-hand_ expression.
 
-Exemplos simples:
+Simple examples:
 
 ```stylus
 nums = 1 2 3
@@ -353,7 +351,7 @@ nums = 1 2 3
 // => false
 ```
 
-Alguns identificadores não definidos:
+Some undefined identifiers:
 
 ```stylus
 words = foo bar baz
@@ -364,7 +362,7 @@ HEY in words
 // => false
 ```
 
-Também funciona com as túplas:
+Works with tuples too:
 
 ```stylus
 vals = (error 'one') (error 'two')
@@ -381,7 +379,7 @@ error in vals
 // => false
 ```
 
-Exemplo de uso em combinação:
+Example usage in mixin:
 
 ```stylus
 pad(types = padding, n = 5px)
@@ -400,7 +398,7 @@ body
   pad(padding margin, 10px)
 ```
 
-Resulta em:
+Yielding:
 
 ```css
 body {
@@ -415,11 +413,11 @@ body {
 }
 ```
 
-### Atribuição Condicional: ?= := {#conditional-assignment}
+### Conditional Assignment: ?= :=
 
-O operador de atribuição condicional `?=` (apelidado como `:=`) permite-nos definir variáveis sem excluir valores antigos (se presente). O operador expande para uma operação binária `is defined` sem um um ternário.
+The conditional assignment operator `?=` (aliased as `:=`) lets us define variables without clobbering old values (if present). This operator expands to an `is defined` binary operation within a ternary. 
 
-Todos os exemplos seguintes são equivalentes:
+For example, the following are equivalent:
 
 ```stylus
 color := white
@@ -427,7 +425,7 @@ color ?= white
 color = color is defined ? color : white
 ```
 
-Quando usamos um `=` simples, nós simplesmente reatribuimos:
+When using plain `=`, we simply reassign:
 
 ```stylus
 color = white
@@ -437,7 +435,7 @@ color
 // => black
 ```
 
-Mas quando usamos `?=`, a nossa segunda tentativa falha (já que a variável já está definida):
+But when using `?=`, our second attempt fails (since the variable is already defined):
 
 ```stylus
 color = white
@@ -447,9 +445,9 @@ color
 // => white
 ```
 
-### Verificação de Instância: is a {#instance-check-is-a}
+### Instance Check: is a
 
-A stylus fornece um operador binário nomeado `is a` usado para a verificação de tipo:
+Stylus provides a binary operator named `is a` used to type check.
 
 ```stylus
 15 is a 'unit'
@@ -462,18 +460,19 @@ A stylus fornece um operador binário nomeado `is a` usado para a verificação 
 // => false
 ```
 
-Alternativamente, nós poderiamos usar o função de instância binária `type()`:
+Alternatively, we could use the `type()` BIF:
 
 ```stylus
 type(#fff) == 'rgba'
-// => true  
+// => true                                                                            
 ```
 
-**Nota**: `color` é o único caso especial, avaliando para `true` quando o operando à esquerda é um nó `RGBA` ou `HSLA`.
+**Note:** `color` is the only special-case, evaluating to `true` when the
+left-hand operand is an `RGBA` or `HSLA` node.
 
-### Definição de Variável: is defined  {#variable-definition-is-defined}
+### Variable Definition: is defined
 
-Este pseudo operador binário não aceita um operador à direita, e _não_ avalia a esquerda. Isto permite-nos verificar se a variável tem um valor atribuído a ela.
+This pseudo binary operator does not accept a right-hand operator, and does _not_ evaluate the left. This allows us to check if a variable has a value assigned to it.
 
 ```stylus
 foo is defined
@@ -487,7 +486,7 @@ foo is defined
 // => 'invalid "is defined" check on non-variable #fff'
 ```
 
-Alternatimante, um pode usar a função embutida `lookup(name)` para fazer isto—ou realizar uma procura dinâmica:
+Alternatively, one can use the `lookup(name)` built-in function to do this—or to perform dynamic lookups:
 
 ```stylus
 name = 'blue'
@@ -499,7 +498,7 @@ lookup('light-' + name)
 // => #80e2e9
 ```
 
-Este operador é fundamental, já que um identificador não definido continua a ser um valor verdadeiro. Por exemplo:
+This operator is essential, as an undefined identifier is still a truthy value. For example:
 
 ```stylus
 body
@@ -507,7 +506,7 @@ body
     padding 5px
 ```
 
-_Resultará_ na seguinte CSS quando for não definido:
+_Will_ yield the following CSS when undefined:
 
 ```css
 body {
@@ -515,7 +514,7 @@ body {
 }
 ```
 
-No entanto, este estará seguro:
+However this will be safe:
 
 ```stylus
 body
@@ -523,9 +522,9 @@ body
     padding 5px
 ```
 
-## Ternário {#ternary}
+## Ternary
 
-O operador ternário funciona conforme esperaríamos na maioria das linguagens. É o único operador com três operandos (a expressão de _condição_, a expressão _verdadeira_, e a expressão _falsa_).
+The ternary operator works as we would expect in most languages. It's the only operator with three operands (the _condition_ expression, the _truth_ expression, and the _false_ expression).
 
 ```stylus
 num = 15
@@ -533,9 +532,9 @@ num ? unit(num, 'px') : 20px
 // => 15px
 ```
 
-## Moldagem {#casting}
+## Casting
 
-Como uma alternativa concisa à função embutida `unit()`, a sintaxe `(expr) unit` pode ser usado para forçar o sufixo.
+As a terse alternative to the `unit()` built-in function, the syntax `(expr) unit` may be used to force the suffix. 
 
 ```stylus
 body
@@ -548,16 +547,16 @@ body
   foo: unit(5 + 180 / 2, deg)
 ```
 
-## Operações de Cor {#color-operations}
+## Color Operations
 
-As operações sobre as cores fornce uma maneira concisa e expressiva para alterar os componentes. Por exemplo, podemos operar sobre cada RGB:
+Operations on colors provide a terse, expressive way to alter components. For example, we can operate on each RGB:
 
 ```stylus
 #0e0 + #0e0
 // => #0f0
 ```
 
-Um outro exemplo é o ajuste do valor de claridade pela adição ou subtração de uma percentagem. Para aclarar uma cor, adicione; para escurecer, subtraia.
+Another example is adjust the lightness value by adding or subtracting a percentage. To lighten a color, add; to darken, subtract.
 
 ```stylus
 #888 + 50%
@@ -567,33 +566,33 @@ Um outro exemplo é o ajuste do valor de claridade pela adição ou subtração 
 // => #444
 ```
 
-Ajuste da tonalidade também é possível pela adição ou substração com graus. Por exemplo, adicionando `50deg` para este valor de vermelho resulta em um amarelo:
-
+Adjust the hue is also possible by adding or subtracting with degrees. For example, adding `50deg` to this red value results in a yellow:
+ 
 ```stylus
 #f00 + 50deg
 // => #ffd500
 ```
 
-Os valores apertam apropriadamente. Por exemplo, podemos "girar" a tonalidade para `180deg`, e se o valor atual é `320deg`, resolverá para `140deg`.
+Values clamp appropriately. For example, we can "spin" the hue 180 degrees, and if the current value is `320deg`, it will resolve to `140deg`.
 
-Nós podemos também torcer vários valores de uma vez (incluindo alfa) pelo uso `rgb()`, `rgba()`, `hsl()`, ou `hsla()`:
+We may also tweak several values at once (including the alpha) by using `rgb()`, `rgba()`, `hsl()`, or `hsla()`:
 
 ```stylus
 #f00 - rgba(100,0,0,0.5)
 // => rgba(155,0,0,0.5)
 ```
 
-## Sprintf {#sprintf}
+## Sprintf
 
-O operador `%` de sequência de caracteres parecido com o `sprintf` pode ser usado para gerar um valor literal, internamente passando argumentos através da função embutida `s()`:
+The string sprintf-like operator `%` can be used to generate a literal value, internally passing arguments through the `s()` built-in:
 
 ```stylus
 'X::Microsoft::Crap(%s)' % #fc0
 // => X::Microsoft::Crap(#fc0)
 ```
 
-Os vários valores deve ser colocado em parêntesis:
-
+Multiple values should be parenthesized:
+ 
 ```stylus
 '-webkit-gradient(%s, %s, %s)' % (linear (0 0) (0 100%))
 // => -webkit-gradient(linear, 0 0, 0 100%)

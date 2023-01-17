@@ -3,37 +3,37 @@ layout: default
 permalink: docs/gedit.html
 ---
 
-# Especificação da Linguagem para Gedit
+# gedit language-spec
 
-A Stylus está disponível com uma versão temporária de `styl.lang` para [GtkSourceView](https://live.gnome.org/GtkSourceView), baseado no [trabalho](https://github.com/gmate/gmate/blob/master/lang-specs/scss.lang) do [Yanekk](https://github.com/yanekk) sobre a `scss.lang`.
+Stylus ships with a temporary version of `styl.lang` for [GtkSourceView](https://live.gnome.org/GtkSourceView), based off [Yanekk](https://github.com/yanekk)'s [work](https://github.com/gmate/gmate/blob/master/lang-specs/scss.lang) on `scss.lang`.
  
-![Especificação da Linguagem de Stylus para GtkSourceView](https://i.imgur.com/uBppL.png)
+ ![Stylus Language Specification for GtkSourceView](https://i.imgur.com/uBppL.png))
 
-Isto é um inicio e fornece uma [especificação da linguagem](https://live.gnome.org/Gedit/NewLanguage) básica para editores de GtkSourceView tais como [gedit](https://projects.gnome.org/gedit/).
+This is a start and provides a basic [language spec](https://live.gnome.org/Gedit/NewLanguage) for GtkSourceView editors such as [gedit](https://projects.gnome.org/gedit/).
 
-**Fases da Instalação**
+**Installation Steps**
  
-Descarregue o `styl.lang` na tua pasta `language-specs` local:
+Download `styl.lang` to your local `language-specs` folder:
 
 ```bash
 mkdir -p ~/.local/share/gtksourceview-2.0/language-specs/ && wget https://raw.github.com/stylus/stylus/master/editors/gedit/styl.lang -O ~/.local/share/gtksourceview-2.0/language-specs/styl.lang
 ```
 
-Para utilizador da gtksourceview 3.0 (gedit 3.0):
+For gtksourceview 3.0 (gedit 3.0), user:
  
 ```bash
 mkdir -p ~/.local/share/gtksourceview-3.0/language-specs/ && wget https://raw.github.com/stylus/stylus/master/editors/gedit/styl.lang -O ~/.local/share/gtksourceview-3.0/language-specs/styl.lang
 ```
 
-Atualize a base de dados da MIME e desfrute da sintaxe da Stylus na gedit!
+Update the MIME database and enjoy Stylus syntax in gedit!
  
 ```bash
 cd ~/.local/share
 update-mime-database mime
 ```
 
-Isto é muito mais agradável do ver o gedit reconhecer os teus ficheiros `.styl` como Configurações de Apache (Apache Confs)!
+This is much more enjoyable than having gedit recognize your `.styl` files as Apache Confs!
  
----
+ ---
  
-**Está guloso?** Adicione mais cobertura glacé ao gedit com a `gedit-icing`: [https://github.com/niftylettuce/gedit-icing](https://github.com/niftylettuce/gedit-icing)
+ **Have a sweet tooth?**  Add more icing to gedit with gedit-icing: [https://github.com/niftylettuce/gedit-icing](https://github.com/niftylettuce/gedit-icing)

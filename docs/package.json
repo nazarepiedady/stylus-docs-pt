@@ -1,6 +1,7 @@
 {
   "name": "docs",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress --port 3333 --open",
     "build": "vitepress build",
